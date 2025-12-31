@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Casual Clicker | Juego Web</title>
+
+<style>
+:root{
+  --bg:#0b0d12;
+  --panel:#131722;
+  --accent:#7c3aed;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --radius:18px;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background:radial-gradient(circle at top, #1e1b4b, var(--bg));
+  color:var(--text);
+  min-height:100vh;
+}
+
+/* ===== LAYOUT ===== */
+
+.wrapper{
+  max-width:1100px;
+  margin:auto;
+  padding:40px 20px;
+}
+
+/* ===== HEADER ===== */
+
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:80px;
+}
+
+.logo{
+  font-weight:800;
+  letter-spacing:2px;
+  font-size:1rem;
+}
+
+header a{
+  color:var(--text);
+  text-decoration:none;
+  border:1px solid var(--accent);
+  padding:8px 16px;
+  border-radius:999px;
+  transition:.2s;
+}
+
+header a:hover{
+  background:var(--accent);
+  color:#000;
+}
+
+/* ===== HERO ===== */
+
+.hero{
+  text-align:center;
+  margin-bottom:100px;
+}
+
+.hero h1{
+  font-size:3rem;
+  font-weight:900;
+  margin-bottom:20px;
+}
+
+.hero p{
+  color:var(--muted);
+  max-width:600px;
+  margin:0 auto 40px;
+  font-size:1.05rem;
+}
+
+.hero .play{
+  display:inline-block;
+  background:linear-gradient(135deg, var(--accent), #22d3ee);
+  color:#000;
+  padding:18px 40px;
+  font-size:1.2rem;
+  font-weight:800;
+  border-radius:var(--radius);
+  text-decoration:none;
+  transition:transform .15s, box-shadow .15s;
+  box-shadow:0 0 30px rgba(124,58,237,.4);
+}
+
+.hero .play:hover{
+  transform:translateY(-2px);
+  box-shadow:0 0 50px rgba(124,58,237,.7);
+}
+
+/* ===== FEATURES ===== */
+
+.features{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+  gap:24px;
+  margin-bottom:100px;
+}
+
+.feature{
+  background:var(--panel);
+  padding:24px;
+  border-radius:var(--radius);
+  border:1px solid #1f2937;
+}
+
+.feature h3{
+  margin-bottom:10px;
+  font-size:1.1rem;
+}
+
+.feature p{
+  color:var(--muted);
+  font-size:.9rem;
+}
+
+/* ===== STATUS ===== */
+
+.status{
+  background:linear-gradient(135deg, #0f172a, #020617);
+  border-radius:var(--radius);
+  padding:40px 20px;
+  text-align:center;
+  border:1px solid #1f2937;
+}
+
+.status h2{
+  margin-bottom:12px;
+}
+
+.status p{
+  color:var(--muted);
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+  text-align:center;
+  margin-top:80px;
+  color:var(--muted);
+  font-size:.8rem;
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:600px){
+  .hero h1{
+    font-size:2.2rem;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+  <header>
+    <div class="logo">CASUAL CLICKER</div>
+    <a href="https://maestro-gato12.itch.io/casual-clicker" target="_blank">Jugar</a>
+  </header>
+
+  <section class="hero">
+    <h1>Casual Clicker</h1>
+    <p>
+      Un juego web sencillo, adictivo y relajante.
+      Haz clic, progresa, desbloquea mejoras y rompe tu propio récord.
+    </p>
+    <a class="play" href="https://maestro-gato12.itch.io/casual-clicker" target="_blank">
+      ▶ JUGAR AHORA
+    </a>
+  </section>
+
+  <section class="features">
+    <div class="feature">
+      <h3>🖱️ Gameplay simple</h3>
+      <p>Un solo botón, progresión constante y sensación satisfactoria.</p>
+    </div>
+    <div class="feature">
+      <h3>🛒 Mejoras</h3>
+      <p>Compra upgrades que aumentan tus clicks y automatizan el progreso.</p>
+    </div>
+    <div class="feature">
+      <h3>🏆 Logros</h3>
+      <p>Desbloquea retos y demuestra hasta dónde puedes llegar.</p>
+    </div>
+    <div class="feature">
+      <h3>📱 Web & móvil</h3>
+      <p>Funciona perfectamente en PC y dispositivos móviles.</p>
+    </div>
+  </section>
+
+  <section class="status">
+    <h2>Estado del juego</h2>
+    <p>En desarrollo activo · Nuevas funciones en camino</p>
+  </section>
+
+  <footer>
+    © 2026 · Casual Clicker · Juego web independiente
+  </footer>
+
+</div>
+
+</body>
+</html>
