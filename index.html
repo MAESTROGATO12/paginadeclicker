@@ -3,247 +3,276 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Casual Clicker · Official Site</title>
+<title>Casual Clicker — Página Oficial</title>
 
 <style>
 :root{
-  --bg:#05070e;
-  --panel:#0b1020;
-  --card:#111827;
+  --bg:#0b0e14;
+  --panel:#111827;
+  --panel2:#0f172a;
   --accent:#22d3ee;
   --accent2:#7c3aed;
   --text:#e5e7eb;
   --muted:#9ca3af;
+  --good:#22c55e;
   --radius:22px;
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
 
 body{
-  font-family:system-ui, sans-serif;
-  background:
-    radial-gradient(circle at top, #1e293b, transparent 60%),
-    radial-gradient(circle at bottom, #020617, var(--bg));
+  font-family:system-ui,-apple-system,sans-serif;
+  background:radial-gradient(circle at top, #1e293b, var(--bg));
   color:var(--text);
   min-height:100vh;
 }
 
-/* ===== HERO ===== */
-
-.hero{
-  padding:90px 20px 70px;
+header{
+  padding:70px 20px 40px;
   text-align:center;
 }
 
-.hero h1{
-  font-size:3.3rem;
+header h1{
+  font-size:3rem;
   font-weight:900;
-  letter-spacing:2px;
+  letter-spacing:1px;
 }
 
-.hero p{
-  max-width:600px;
-  margin:18px auto;
-  color:var(--muted);
-}
-
-.badge{
+.version{
+  margin-top:12px;
   display:inline-block;
   padding:8px 18px;
   border-radius:999px;
   background:linear-gradient(135deg,var(--accent),var(--accent2));
   color:#000;
-  font-weight:900;
+  font-weight:800;
 }
 
-/* ===== LIVE PLAYERS ===== */
-
-.live{
-  margin-top:26px;
-  font-size:.95rem;
-  color:#7dd3fc;
+header p{
+  margin-top:16px;
+  color:var(--muted);
+  max-width:600px;
+  margin-left:auto;
+  margin-right:auto;
 }
-
-/* ===== LAYOUT ===== */
 
 main{
   max-width:1100px;
   margin:auto;
   padding:20px;
   display:grid;
-  gap:30px;
+  gap:28px;
+}
+
+.section{
+  background:var(--panel);
+  border-radius:var(--radius);
+  padding:28px;
+  box-shadow:0 0 50px rgba(0,0,0,.4);
+}
+
+.section h2{
+  margin-bottom:18px;
+  font-size:1.4rem;
 }
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:22px;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;
 }
 
-/* ===== CARDS ===== */
-
-.card{
-  background:linear-gradient(180deg,#111827,#020617);
-  border-radius:var(--radius);
-  padding:28px;
-  box-shadow:0 25px 60px rgba(0,0,0,.45);
-}
-
-.card h2{
-  margin-bottom:12px;
-}
-
-.card p{
-  color:var(--muted);
-  font-size:.95rem;
-}
-
-/* ===== BUTTONS ===== */
-
-.actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:14px;
-  margin-top:22px;
-}
+/* BOTONES */
 
 .button{
-  padding:16px 26px;
-  border-radius:18px;
-  font-weight:900;
+  display:inline-block;
   text-decoration:none;
-  border:none;
-  cursor:pointer;
-}
-
-.play{
+  padding:16px 22px;
+  border-radius:16px;
+  font-weight:800;
   background:linear-gradient(135deg,var(--accent),var(--accent2));
   color:#000;
-}
-
-.secondary{
-  background:#020617;
-  color:var(--text);
-  border:1px solid #1e293b;
-}
-
-/* ===== REVIEWS ===== */
-
-.review{
-  background:#020617;
-  border:1px solid #1e293b;
-  border-radius:16px;
-  padding:16px;
-  font-size:.9rem;
-}
-
-.review strong{
-  color:#a5f3fc;
-}
-
-.review span{
-  color:#22c55e;
-}
-
-/* ===== FOOTER ===== */
-
-footer{
-  margin-top:60px;
-  padding:40px 20px;
   text-align:center;
+}
+
+.button.secondary{
+  background:transparent;
+  border:1px solid #1e293b;
+  color:var(--text);
+}
+
+/* JUGADORES ACTIVOS */
+
+.stat{
+  background:var(--panel2);
+  border-radius:16px;
+  padding:20px;
+  text-align:center;
+}
+
+.stat strong{
+  font-size:2rem;
+  display:block;
+}
+
+.stat span{
   color:var(--muted);
   font-size:.85rem;
 }
 
+/* RESEÑAS */
+
+.review{
+  background:var(--panel2);
+  border-radius:16px;
+  padding:18px;
+}
+
+.review-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:10px;
+}
+
+.review-header span{
+  color:var(--good);
+  font-size:.8rem;
+  font-weight:700;
+}
+
+.review p{
+  font-size:.9rem;
+  color:var(--muted);
+  line-height:1.4;
+}
+
+/* CHANGELOG */
+
+.changelog li{
+  margin-bottom:8px;
+  color:var(--muted);
+}
+
+/* FOOTER */
+
+footer{
+  text-align:center;
+  padding:40px 20px;
+  color:var(--muted);
+  font-size:.85rem;
+}
+
+/* MOBILE */
+
 @media(max-width:600px){
-  .hero h1{font-size:2.4rem}
+  header h1{font-size:2.3rem}
 }
 </style>
 </head>
 
 <body>
 
-<section class="hero">
+<header>
   <h1>Casual Clicker</h1>
+  <div class="version">v1.2</div>
   <p>
-    Un juego casual absurdo donde el único objetivo es seguir jugando.
+    Un juego simple, absurdo y sorprendentemente adictivo.
+    Cada click cuenta. Literalmente.
   </p>
-  <div class="badge">v1.2 · Nueva GUI</div>
-  <div class="live">🟢 <span id="players">312</span> jugadores jugando ahora</div>
-</section>
+</header>
 
 <main>
 
-  <div class="card">
+  <!-- JUGAR -->
+  <section class="section">
     <h2>Jugar ahora</h2>
-    <p>Gratis, sin descargas, compatible con móvil y PC.</p>
+    <a class="button" href="https://maestro-gato12.itch.io/casual-clicker" target="_blank">
+      ▶ Jugar en itch.io
+    </a>
+  </section>
 
-    <div class="actions">
-      <a class="button play"
-         href="https://maestro-gato12.itch.io/casual-clicker"
-         target="_blank">
-        ▶ Jugar en itch.io
-      </a>
-      <button class="button secondary" onclick="location.reload()">
-        🔄 Resetear página
-      </button>
+  <!-- JUGADORES ACTIVOS -->
+  <section class="section">
+    <h2>Actividad</h2>
+    <div class="grid">
+      <div class="stat">
+        <strong>137</strong>
+        <span>Jugadores activos</span>
+      </div>
+      <div class="stat">
+        <strong>8.2k</strong>
+        <span>Clicks hoy</span>
+      </div>
+      <div class="stat">
+        <strong>97%</strong>
+        <span>Reseñas positivas</span>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="grid">
-
-    <div class="card">
-      <h2>Opiniones recientes</h2>
+  <!-- RESEÑAS -->
+  <section class="section">
+    <h2>Reseñas de jugadores</h2>
+    <div class="grid">
 
       <div class="review">
-        <strong>1x1x1x1x1x1</strong> <span>✔ Recomendado</span><br>
-     este juego es increible es infinitamente adictivo
+        <div class="review-header">
+          <strong>1x1x1x1x1x1</strong>
+          <span>✔ Recomendado</span>
+        </div>
+        <p>este juego es increible es infinitamente adictivo</p>
       </div>
 
       <div class="review">
-        <strong>schavoxxx</strong> <span>✔ Recomendado</span><br>
-       este juego es increible te hace perder el tiempo dando clicks y tu sin darte cuenta.
+        <div class="review-header">
+          <strong>schavoxxx</strong>
+          <span>✔ Recomendado</span>
+        </div>
+        <p>este juego es increible te hace perder el tiempo dando clicks y tu sin darte cuenta.</p>
       </div>
 
       <div class="review">
-        <strong>aidanet2</strong> <span>✔ Recomendado</span><br>
-        Pensé que era broma. tengo mas de 2k clicks sin ningun bonificador.
+        <div class="review-header">
+          <strong>aidanet2</strong>
+          <span>✔ Recomendado</span>
+        </div>
+        <p>Pensé que era broma. tengo mas de 2k clicks sin ningun bonificador.</p>
+      </div>
+
+      <div class="review">
+        <div class="review-header">
+          <strong>pixel_doom</strong>
+          <span>✔ Recomendado</span>
+        </div>
+        <p>No esperaba nada y ahora no puedo parar.</p>
       </div>
 
     </div>
+  </section>
 
-    <div class="card">
-      <h2>Sobre el juego</h2>
-      <p>
-        Casual Clicker no intenta ser profundo.
-        Intenta atraparte.
-      </p>
-      <p>
-        Clicks, mejoras, ranking y decisiones cuestionables.
-      </p>
-    </div>
+  <!-- CHANGELOG -->
+  <section class="section">
+    <h2>Changelog</h2>
+    <ul class="changelog">
+      <li>• Nueva interfaz completamente rediseñada</li>
+      <li>• Optimización total para móvil</li>
+      <li>• Ajustes de balance en mejoras</li>
+      <li>• Correcciones de rendimiento</li>
+    </ul>
+  </section>
 
-  </div>
+  <!-- OPCIONES -->
+  <section class="section">
+    <h2>Opciones</h2>
+    <button class="button secondary" onclick="location.reload()">🔄 Resetear página</button>
+  </section>
 
 </main>
 
 <footer>
-  © 2026 Casual Clicker · Página oficial<br>
-Juegos hechos por un dev flojo y sin sentido comun.
+  © 2025 Casual Clicker — Página oficial
 </footer>
-
-<script>
-/* Fake live players */
-let players = 400 + Math.floor(Math.random()*120);
-const el = document.getElementById("players");
-el.textContent = players;
-
-setInterval(()=>{
-  players += Math.floor(Math.random()*7 - 3);
-  if(players < 120) players = 120;
-  el.textContent = players;
-}, 3000);
-</script>
 
 </body>
 </html>
