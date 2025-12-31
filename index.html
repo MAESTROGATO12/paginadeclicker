@@ -3,30 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Casual Clicker — Official Site</title>
+<title>Casual Clicker · Official Site</title>
 
 <style>
 :root{
-  --bg:#070a12;
-  --panel:#0f172a;
+  --bg:#05070e;
+  --panel:#0b1020;
   --card:#111827;
   --accent:#22d3ee;
   --accent2:#7c3aed;
   --text:#e5e7eb;
   --muted:#9ca3af;
-  --radius:24px;
+  --radius:22px;
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
 
 body{
-  font-family:system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family:system-ui, sans-serif;
   background:
     radial-gradient(circle at top, #1e293b, transparent 60%),
     radial-gradient(circle at bottom, #020617, var(--bg));
   color:var(--text);
   min-height:100vh;
-  overflow-x:hidden;
 }
 
 /* ===== HERO ===== */
@@ -37,26 +36,32 @@ body{
 }
 
 .hero h1{
-  font-size:3.4rem;
+  font-size:3.3rem;
   font-weight:900;
   letter-spacing:2px;
 }
 
 .hero p{
   max-width:600px;
-  margin:18px auto 0;
+  margin:18px auto;
   color:var(--muted);
-  font-size:1.05rem;
 }
 
 .badge{
   display:inline-block;
-  margin-top:22px;
   padding:8px 18px;
   border-radius:999px;
   background:linear-gradient(135deg,var(--accent),var(--accent2));
   color:#000;
   font-weight:900;
+}
+
+/* ===== LIVE PLAYERS ===== */
+
+.live{
+  margin-top:26px;
+  font-size:.95rem;
+  color:#7dd3fc;
 }
 
 /* ===== LAYOUT ===== */
@@ -66,7 +71,7 @@ main{
   margin:auto;
   padding:20px;
   display:grid;
-  gap:28px;
+  gap:30px;
 }
 
 .grid{
@@ -81,18 +86,7 @@ main{
   background:linear-gradient(180deg,#111827,#020617);
   border-radius:var(--radius);
   padding:28px;
-  box-shadow:0 20px 50px rgba(0,0,0,.45);
-  position:relative;
-  overflow:hidden;
-}
-
-.card::after{
-  content:"";
-  position:absolute;
-  inset:auto -40% -40% -40%;
-  height:60%;
-  background:linear-gradient(135deg,transparent,var(--accent),transparent);
-  opacity:.08;
+  box-shadow:0 25px 60px rgba(0,0,0,.45);
 }
 
 .card h2{
@@ -120,12 +114,6 @@ main{
   text-decoration:none;
   border:none;
   cursor:pointer;
-  transition:transform .12s, box-shadow .12s;
-}
-
-.button:hover{
-  transform:translateY(-2px);
-  box-shadow:0 10px 30px rgba(0,0,0,.4);
 }
 
 .play{
@@ -139,37 +127,22 @@ main{
   border:1px solid #1e293b;
 }
 
-/* ===== CHANGELOG ===== */
+/* ===== REVIEWS ===== */
 
-ul{
-  padding-left:18px;
-  color:var(--muted);
-  line-height:1.7;
-}
-
-/* ===== FEATURE STRIP ===== */
-
-.features{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:18px;
-}
-
-.feature{
+.review{
   background:#020617;
-  border-radius:18px;
-  padding:20px;
-  text-align:center;
   border:1px solid #1e293b;
+  border-radius:16px;
+  padding:16px;
+  font-size:.9rem;
 }
 
-.feature span{
-  font-size:1.8rem;
+.review strong{
+  color:#a5f3fc;
 }
 
-.feature h3{
-  margin-top:10px;
-  font-size:1rem;
+.review span{
+  color:#22c55e;
 }
 
 /* ===== FOOTER ===== */
@@ -182,10 +155,8 @@ footer{
   font-size:.85rem;
 }
 
-/* ===== MOBILE ===== */
-
 @media(max-width:600px){
-  .hero h1{font-size:2.5rem}
+  .hero h1{font-size:2.4rem}
 }
 </style>
 </head>
@@ -195,20 +166,17 @@ footer{
 <section class="hero">
   <h1>Casual Clicker</h1>
   <p>
-    Un juego casual donde cada click importa.
-    Progresión infinita, mejoras, ranking y diversión absurda.
+    Un juego casual absurdo donde el único objetivo es seguir jugando.
   </p>
   <div class="badge">v1.2 · Nueva GUI</div>
+  <div class="live">🟢 <span id="players">412</span> jugadores jugando ahora</div>
 </section>
 
 <main>
 
   <div class="card">
-    <h2>Juega ahora</h2>
-    <p>
-      Disponible gratuitamente. Compatible con PC y móvil.
-      No requiere descarga.
-    </p>
+    <h2>Jugar ahora</h2>
+    <p>Gratis, sin descargas, compatible con móvil y PC.</p>
 
     <div class="actions">
       <a class="button play"
@@ -225,35 +193,34 @@ footer{
   <div class="grid">
 
     <div class="card">
-      <h2>Changelog</h2>
-      <ul>
-        <li>Interfaz completamente rediseñada</li>
-        <li>Mejor experiencia en móvil</li>
-        <li>Optimización general</li>
-        <li>Nuevos sistemas internos</li>
-      </ul>
+      <h2>Opiniones recientes</h2>
+
+      <div class="review">
+        <strong>JugadorRandom42</strong> <span>✔ Recomendado</span><br>
+        No sé por qué sigo jugando, pero no puedo parar.
+      </div>
+
+      <div class="review">
+        <strong>ClickMaster</strong> <span>✔ Recomendado</span><br>
+        El mejor juego para perder el tiempo conscientemente.
+      </div>
+
+      <div class="review">
+        <strong>SinVida.exe</strong> <span>✔ Recomendado</span><br>
+        Pensé que era broma. Llevo 3 horas aquí.
+      </div>
+
     </div>
 
     <div class="card">
-      <h2>Características</h2>
-      <div class="features">
-        <div class="feature">
-          <span>🖱️</span>
-          <h3>Clicks infinitos</h3>
-        </div>
-        <div class="feature">
-          <span>🏆</span>
-          <h3>Ranking</h3>
-        </div>
-        <div class="feature">
-          <span>🛒</span>
-          <h3>Mejoras</h3>
-        </div>
-        <div class="feature">
-          <span>📱</span>
-          <h3>Mobile friendly</h3>
-        </div>
-      </div>
+      <h2>Sobre el juego</h2>
+      <p>
+        Casual Clicker no intenta ser profundo.
+        Intenta atraparte.
+      </p>
+      <p>
+        Clicks, mejoras, ranking y decisiones cuestionables.
+      </p>
     </div>
 
   </div>
@@ -261,10 +228,22 @@ footer{
 </main>
 
 <footer>
-  © 2025 Casual Clicker · Página oficial<br>
-  Hecho con clicks, tiempo libre y cero sentido común.
+  © 2026 Casual Clicker · Página oficial<br>
+Juegos hechos por un dev flojo y sin sentido comun.
 </footer>
+
+<script>
+/* Fake live players */
+let players = 400 + Math.floor(Math.random()*120);
+const el = document.getElementById("players");
+el.textContent = players;
+
+setInterval(()=>{
+  players += Math.floor(Math.random()*7 - 3);
+  if(players < 120) players = 120;
+  el.textContent = players;
+}, 3000);
+</script>
 
 </body>
 </html>
-
