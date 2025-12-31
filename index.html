@@ -3,170 +3,138 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Casual Clicker — Página Oficial</title>
+<title>Casual clicker — Página Oficial</title>
 
 <style>
 :root{
-  --bg:#0b0e14;
-  --panel:#111827;
-  --panel2:#0f172a;
-  --accent:#22d3ee;
-  --accent2:#7c3aed;
+  --bg:#0e0f13;
+  --panel:#151720;
+  --panel2:#1c1f2b;
+  --accent:#4da3ff;
+  --accent2:#22c55e;
   --text:#e5e7eb;
   --muted:#9ca3af;
-  --good:#22c55e;
-  --radius:22px;
+  --danger:#ef4444;
 }
 
-*{box-sizing:border-box;margin:0;padding:0}
-
+*{box-sizing:border-box;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;}
 body{
-  font-family:system-ui,-apple-system,sans-serif;
-  background:radial-gradient(circle at top, #1e293b, var(--bg));
+  margin:0;
+  background:linear-gradient(180deg,#0b0c10,#0e0f13);
   color:var(--text);
-  min-height:100vh;
 }
 
+/* HEADER */
 header{
-  padding:70px 20px 40px;
+  background:radial-gradient(circle at top,#1e293b,#0e0f13);
+  padding:60px 20px;
   text-align:center;
 }
-
 header h1{
-  font-size:3rem;
-  font-weight:900;
-  letter-spacing:1px;
+  font-size:clamp(2.2rem,5vw,3.2rem);
+  margin:0;
 }
-
-.version{
-  margin-top:12px;
-  display:inline-block;
-  padding:8px 18px;
-  border-radius:999px;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  color:#000;
-  font-weight:800;
-}
-
 header p{
-  margin-top:16px;
   color:var(--muted);
   max-width:600px;
-  margin-left:auto;
-  margin-right:auto;
+  margin:15px auto 30px;
 }
+header a{
+  display:inline-block;
+  background:var(--accent);
+  color:#000;
+  text-decoration:none;
+  padding:15px 28px;
+  border-radius:14px;
+  font-weight:700;
+  transition:.2s;
+}
+header a:hover{transform:scale(1.05);}
 
-main{
+/* SECTIONS */
+section{
   max-width:1100px;
-  margin:auto;
-  padding:20px;
-  display:grid;
-  gap:28px;
+  margin:50px auto;
+  padding:0 20px;
 }
-
-.section{
-  background:var(--panel);
-  border-radius:var(--radius);
-  padding:28px;
-  box-shadow:0 0 50px rgba(0,0,0,.4);
-}
-
-.section h2{
-  margin-bottom:18px;
-  font-size:1.4rem;
-}
-
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:16px;
+  gap:20px;
 }
 
-/* BOTONES */
-
-.button{
-  display:inline-block;
-  text-decoration:none;
-  padding:16px 22px;
-  border-radius:16px;
-  font-weight:800;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  color:#000;
-  text-align:center;
-}
-
-.button.secondary{
-  background:transparent;
-  border:1px solid #1e293b;
-  color:var(--text);
-}
-
-/* JUGADORES ACTIVOS */
-
+/* STATS */
 .stat{
-  background:var(--panel2);
-  border-radius:16px;
-  padding:20px;
+  background:var(--panel);
+  padding:25px;
+  border-radius:18px;
   text-align:center;
 }
-
-.stat strong{
+.stat h2{
   font-size:2rem;
-  display:block;
+  margin:0;
 }
-
 .stat span{
   color:var(--muted);
-  font-size:.85rem;
+  font-size:.9rem;
 }
 
-/* RESEÑAS */
-
+/* REVIEWS */
 .review{
   background:var(--panel2);
+  padding:20px;
   border-radius:16px;
-  padding:18px;
 }
-
-.review-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:10px;
+.review strong{
+  color:var(--accent2);
 }
-
-.review-header span{
-  color:var(--good);
-  font-size:.8rem;
-  font-weight:700;
-}
-
 .review p{
-  font-size:.9rem;
-  color:var(--muted);
-  line-height:1.4;
+  margin:10px 0 0;
+  color:#d1d5db;
 }
 
 /* CHANGELOG */
-
+.changelog{
+  background:var(--panel);
+  padding:25px;
+  border-radius:18px;
+}
+.changelog ul{
+  padding-left:20px;
+}
 .changelog li{
-  margin-bottom:8px;
-  color:var(--muted);
+  margin:10px 0;
 }
 
-/* FOOTER */
+/* OPTIONS */
+.options{
+  display:flex;
+  flex-wrap:wrap;
+  gap:15px;
+}
+button{
+  background:#1f2937;
+  color:var(--text);
+  border:none;
+  padding:12px 20px;
+  border-radius:14px;
+  cursor:pointer;
+  transition:.2s;
+}
+button:hover{background:#374151;}
+.reset{color:var(--danger);}
 
+/* FOOTER */
 footer{
   text-align:center;
-  padding:40px 20px;
   color:var(--muted);
+  padding:40px 20px;
   font-size:.85rem;
 }
 
 /* MOBILE */
-
 @media(max-width:600px){
-  header h1{font-size:2.3rem}
+  header{padding:40px 15px;}
 }
 </style>
 </head>
@@ -175,103 +143,78 @@ footer{
 
 <header>
   <h1>Casual Clicker</h1>
-  <div class="version">v1.2</div>
-  <p>
-    Un juego simple, absurdo y sorprendentemente adictivo.
-    Cada click cuenta. Literalmente.
-  </p>
+  <p>Un juego absurdamente simple, peligrosamente adictivo  
+  y hecho con cero sentido común.</p>
+  <a href="https://maestro-gato12.itch.io/casual-clicker" target="_blank">
+    Jugar gratis en itch.io
+  </a>
 </header>
 
-<main>
-
-  <!-- JUGAR -->
-  <section class="section">
-    <h2>Jugar ahora</h2>
-    <a class="button" href="https://maestro-gato12.itch.io/casual-clicker" target="_blank">
-      ▶ Jugar en itch.io gratis
-    </a>
-  </section>
-
-  <!-- JUGADORES ACTIVOS -->
-  <section class="section">
-    <h2>Actividad</h2>
-    <div class="grid">
-      <div class="stat">
-        <strong>137</strong>
-        <span>Jugadores activos</span>
-      </div>
-      <div class="stat">
-        <strong>8.2k</strong>
-        <span>Clicks hoy</span>
-      </div>
-      <div class="stat">
-        <strong>97%</strong>
-        <span>Reseñas positivas</span>
-      </div>
+<section>
+  <div class="grid">
+    <div class="stat">
+      <h2>137</h2>
+      <span>Jugadores activos</span>
     </div>
-  </section>
-
-  <!-- RESEÑAS -->
-  <section class="section">
-    <h2>Reseñas de jugadores</h2>
-    <div class="grid">
-
-      <div class="review">
-        <div class="review-header">
-          <strong>1x1x1x1x1x1</strong>
-          <span>✔ Recomendado</span>
-        </div>
-        <p>este juego es increible es infinitamente adictivo</p>
-      </div>
-
-      <div class="review">
-        <div class="review-header">
-          <strong>schavoxxx</strong>
-          <span>✔ Recomendado</span>
-        </div>
-        <p>este juego es increible te hace perder el tiempo dando clicks y tu sin darte cuenta.</p>
-      </div>
-
-      <div class="review">
-        <div class="review-header">
-          <strong>aidanet2</strong>
-          <span>✔ Recomendado</span>
-        </div>
-        <p>Pensé que era broma. tengo mas de 2k clicks sin ningun bonificador.</p>
-      </div>
-
-      <div class="review">
-        <div class="review-header">
-          <strong>player 69</strong>
-          <span>✔ Recomendado</span>
-        </div>
-        <p>este juego es simplemente INCREIBLE..</p>
-      </div>
-
+    <div class="stat">
+      <h2>8.2k</h2>
+      <span>Clicks hoy</span>
     </div>
-  </section>
+    <div class="stat">
+      <h2>97%</h2>
+      <span>Reseñas positivas</span>
+    </div>
+  </div>
+</section>
 
-  <!-- CHANGELOG -->
-  <section class="section">
-    <h2>Cambios de la nueva version</h2>
-    <ul class="changelog">
-      <li>• Nueva interfaz completamente rediseñada</li>
-      <li>•disponible para moviles 📱</li>
-      <li>• correciones de bugs</li>
+<section>
+  <h2>Reseñas de adictos</h2>
+  <div class="grid">
+    <div class="review">
+      <strong>✔ Recomendado — 1x1x1x1x1x1</strong>
+      <p>Este juego es increíble, es infinitamente adictivo.</p>
+    </div>
+    <div class="review">
+      <strong>✔ Recomendado — schavoxxx</strong>
+      <p>Te hace perder el tiempo dando clicks y tú sin darte cuenta.</p>
+    </div>
+    <div class="review">
+      <strong>✔ Recomendado — aidanet2</strong>
+      <p>Pensé que era broma. Tengo más de 2k clicks sin ningún bonificador.</p>
+    </div>
+    <div class="review">
+      <strong>✔ Recomendado — player69</strong>
+      <p>Este juego es simplemente INCREÍBLE.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Cambios de la nueva versión (v1.2)</h2>
+  <div class="changelog">
+    <ul>
+      <li>Nueva interfaz completamente rediseñada</li>
+      <li>Disponible para móviles 📱</li>
+      <li>Correcciones de bugs</li>
     </ul>
-  </section>
+  </div>
+</section>
 
-  <!-- OPCIONES -->
-  <section class="section">
-    <h2>Opciones</h2>
-    <button class="button secondary" onclick="location.reload()">🔄 reiniciar la pagina</button>
-  </section>
-
-</main>
+<section>
+  <h2>Opciones</h2>
+  <div class="options">
+    <button onclick="location.reload()">🔄 Reiniciar la página</button>
+    <button class="reset" onclick="alert('Progreso eliminado (mentira)')">
+      💀 Borrar progreso
+    </button>
+  </div>
+</section>
 
 <footer>
-  © 2026 Casual Clicker — ,,juegos,, hechos por un solo dev flojo sin ideas y sin sentido comun XD.
+© 2026 Casual Clicker —  
+“juegos” hechos por un solo dev flojo, sin ideas y sin sentido común XD
 </footer>
 
 </body>
 </html>
+
