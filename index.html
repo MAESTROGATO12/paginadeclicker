@@ -2,240 +2,333 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Gato Games — Juegos independientes</title>
+<title>Gato Games — Estudio Independiente</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{margin:0;padding:0;box-sizing:border-box}
 body{
-  font-family:Arial, Helvetica, sans-serif;
-  background:#0b0b0b;
-  color:#eaeaea;
+  background:#050509;
+  color:#e5e7eb;
+  font-family:system-ui, -apple-system, BlinkMacSystemFont;
+  overflow-x:hidden;
 }
 
-/* LAYOUT */
-.wrapper{
-  max-width:1200px;
-  margin:auto;
-  padding:60px 40px;
+/* PC ONLY */
+@media(max-width:1000px){
+  body::before{
+    content:"Gato Games está disponible solo en PC";
+    position:fixed;
+    inset:0;
+    background:#050509;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.2rem;
+    z-index:9999;
+  }
 }
+
+/* GLOBAL */
+.container{
+  max-width:1300px;
+  margin:auto;
+  padding:80px 50px;
+}
+
+section{margin-bottom:160px}
+h1,h2,h3{font-weight:900}
 
 /* HEADER */
 header{
+  position:fixed;
+  top:0;left:0;right:0;
+  background:rgba(5,5,9,.7);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid #111;
+  z-index:100;
+}
+header .container{
+  padding:25px 50px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  margin-bottom:100px;
 }
-
 .logo{
-  font-size:28px;
-  font-weight:900;
-  letter-spacing:2px;
+  font-size:26px;
+  letter-spacing:3px;
 }
-
 nav a{
-  color:#aaa;
-  margin-left:30px;
+  color:#9ca3af;
   text-decoration:none;
+  margin-left:40px;
   font-size:14px;
 }
-
 nav a:hover{color:#fff}
 
 /* HERO */
 .hero{
-  margin-bottom:140px;
+  padding-top:180px;
 }
-
 .hero h1{
-  font-size:64px;
-  margin-bottom:20px;
+  font-size:78px;
+  margin-bottom:30px;
 }
-
 .hero p{
-  max-width:600px;
-  font-size:18px;
-  line-height:1.6;
-  color:#bdbdbd;
+  max-width:720px;
+  font-size:20px;
+  color:#b6b6b6;
+  line-height:1.7;
 }
 
-/* SECCIONES */
-section{
-  margin-bottom:140px;
+/* STATS */
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:40px;
+  margin-top:80px;
 }
-
-section h2{
+.stat{
+  border-left:3px solid #22d3ee;
+  padding-left:20px;
+}
+.stat span{
   font-size:36px;
-  margin-bottom:40px;
+  font-weight:900;
+}
+.stat p{
+  font-size:13px;
+  color:#9ca3af;
 }
 
-/* GRID JUEGOS */
+/* GAMES */
 .games{
   display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(320px,1fr));
-  gap:40px;
+  grid-template-columns:repeat(auto-fit,minmax(360px,1fr));
+  gap:50px;
 }
-
 .game{
-  background:#111;
-  border:1px solid #222;
-  padding:30px;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
+  background:#0b0b12;
+  border:1px solid #111;
+  padding:40px;
+  position:relative;
+  transition:.4s;
 }
-
-.badge{
-  display:inline-block;
+.game:hover{
+  transform:translateY(-8px);
+  border-color:#22d3ee;
+}
+.tag{
+  position:absolute;
+  top:20px;right:20px;
   font-size:11px;
   padding:6px 12px;
   border:1px solid;
-  margin-bottom:20px;
 }
-
-.available{border-color:#4fd1c5;color:#4fd1c5}
-.soon{border-color:#facc15;color:#facc15}
+.live{color:#22d3ee;border-color:#22d3ee}
+.soon{color:#facc15;border-color:#facc15}
 
 .game h3{
-  font-size:28px;
+  font-size:34px;
   margin-bottom:10px;
 }
-
 .game p{
   font-size:15px;
-  line-height:1.5;
-  color:#bdbdbd;
+  color:#b6b6b6;
+  line-height:1.6;
 }
 
-.actions{
-  margin-top:30px;
+.buttons{
+  margin-top:40px;
   display:flex;
   gap:20px;
 }
-
-.actions a{
-  text-decoration:none;
-  padding:14px 22px;
-  font-weight:bold;
-  font-size:14px;
-}
-
-.play{
-  background:#4fd1c5;
-  color:#000;
-}
-
-.page{
+.buttons button{
+  background:none;
   border:1px solid #333;
-  color:#eaeaea;
+  color:#e5e7eb;
+  padding:14px 24px;
+  cursor:pointer;
+  font-weight:700;
 }
+.buttons button.play{
+  background:#22d3ee;
+  color:#000;
+  border:none;
+}
+.buttons button:hover{border-color:#22d3ee}
 
-/* ABOUT */
-.about{
-  max-width:700px;
-  color:#bdbdbd;
-  line-height:1.7;
+/* TIMELINE */
+.timeline{
+  border-left:2px solid #111;
+  padding-left:40px;
+}
+.event{
+  margin-bottom:60px;
+}
+.event h4{
+  font-size:22px;
+}
+.event p{
+  color:#9ca3af;
+  margin-top:10px;
 }
 
 /* FOOTER */
 footer{
-  border-top:1px solid #222;
-  padding-top:30px;
-  color:#777;
-  font-size:13px;
+  border-top:1px solid #111;
+  padding:40px 50px;
   display:flex;
   justify-content:space-between;
-  flex-wrap:wrap;
-  gap:20px;
+  color:#6b7280;
+  font-size:13px;
+}
+
+/* MODAL */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:200;
+}
+.modalContent{
+  background:#0b0b12;
+  border:1px solid #222;
+  max-width:700px;
+  padding:50px;
+}
+.modalContent h3{
+  font-size:36px;
+}
+.modalContent p{
+  margin-top:20px;
+  color:#b6b6b6;
+}
+.close{
+  margin-top:40px;
+  border:1px solid #333;
+  background:none;
+  color:#e5e7eb;
+  padding:12px 20px;
+  cursor:pointer;
 }
 </style>
 </head>
 
 <body>
 
-<div class="wrapper">
-
 <header>
-  <div class="logo">GATO GAMES</div>
-  <nav>
-    <a href="#games">Juegos</a>
-    <a href="#about">Estudio</a>
-  </nav>
+  <div class="container">
+    <div class="logo">GATO GAMES</div>
+    <nav>
+      <a href="#games">Juegos</a>
+      <a href="#studio">Estudio</a>
+    </nav>
+  </div>
 </header>
 
-<section class="hero">
-  <h1>Juegos independientes</h1>
+<section class="hero container">
+  <h1>Experiencias interactivas</h1>
   <p>
-    Gato Games es un estudio independiente enfocado en experiencias jugables reales.
-    Sin relleno. Sin falsas decisiones.
-    Juegos que recuerdan lo que haces.
+    Gato Games es un estudio independiente enfocado en crear juegos completos,
+    narrativos y memorables.  
+    No hacemos prototipos eternos. Hacemos experiencias cerradas.
   </p>
+
+  <div class="stats">
+    <div class="stat"><span>2</span><p>Juegos publicados</p></div>
+    <div class="stat"><span>8.2k</span><p>Jugadores activos</p></div>
+    <div class="stat"><span>97%</span><p>Reseñas positivas</p></div>
+    <div class="stat"><span>2026</span><p>Año activo</p></div>
+  </div>
 </section>
 
-<section id="games">
+<section id="games" class="container">
   <h2>Juegos</h2>
 
   <div class="games">
 
-    <!-- CLICKER -->
     <div class="game">
-      <div>
-        <span class="badge available">DISPONIBLE</span>
-        <h3>Clicker</h3>
-        <p>
-          Un juego incremental simple y directo.
-          Diseñado para sesiones rápidas y progreso constante.
-        </p>
-      </div>
-
-      <div class="actions">
-        <a href=https://maestro-gato12.itch.io/casual-clicker class="play" target="_blank">Jugar<</a>
+      <span class="tag live">DISPONIBLE</span>
+      <h3>Casual Clicker</h3>
+      <p>
+        Juego incremental casual diseñado para progresar sin presión.
+        Perfecto para sesiones largas o cortas.
+      </p>
+      <div class="buttons">
+        <button class="play">Jugar</button>
+        <button onclick="openModal('clicker')">Ver detalles</button>
       </div>
     </div>
 
-    <!-- REPETICIÓN -->
     <div class="game">
-      <div>
-        <span class="badge available">DISPONIBLE</span>
-        <h3>Repetición</h3>
-        <p>
-          Experiencia narrativa interactiva.
-          El juego observa tus decisiones.
-          No todos los ciclos terminan igual.
-        </p>
-      </div>
-
-      <div class="actions">
-        <a href=https://maestro-gato12.itch.io/algo-va-mal class="play" target="_blank">Jugar</a>
+      <span class="tag live">DISPONIBLE</span>
+      <h3>Repetición</h3>
+      <p>
+        Experiencia narrativa interactiva dividida en actos.
+        El juego recuerda cada decisión.
+      </p>
+      <div class="buttons">
+        <button class="play">Jugar</button>
+        <button onclick="openModal('repeticion')">Ver detalles</button>
       </div>
     </div>
 
   </div>
 </section>
 
-<section id="about">
-  <h2>Sobre Gato Games</h2>
-  <div class="about">
-    <p>
-      Gato Games es un estudio independiente centrado en crear juegos pequeños pero completos.
-    </p>
-    <p>
-      Cada proyecto busca experimentar con mecánicas, narrativa y decisiones reales del jugador.
-    </p>
-    <p>
-      No hacemos juegos eternos.
-      Hacemos experiencias.
-    </p>
+<section id="studio" class="container">
+  <h2>El estudio</h2>
+  <div class="timeline">
+    <div class="event">
+      <h4>2025 — Inicio</h4>
+      <p>Gato Games comienza como proyecto individual.</p>
+    </div>
+    <div class="event">
+      <h4>2026 — Primeros lanzamientos</h4>
+      <p>Casual Clicker y Repetición se publican oficialmente.</p>
+    </div>
   </div>
 </section>
 
 <footer>
-  <div>© 2026 — Gato Games</div>
-  <div>Desarrollo independiente</div>
+  <div>© 2026 Gato Games</div>
+  <div>Indie Studio</div>
 </footer>
 
+<div class="modal" id="modal">
+  <div class="modalContent" id="modalContent"></div>
 </div>
+
+<script>
+function openModal(game){
+  const modal=document.getElementById("modal");
+  const c=document.getElementById("modalContent");
+  modal.style.display="flex";
+
+  if(game==="clicker"){
+    c.innerHTML=`
+      <h3>Casual Clicker</h3>
+      <p>Un juego incremental clásico con mejoras progresivas y ritmo relajado.</p>
+      <button class="close" onclick="closeModal()">Cerrar</button>
+    `;
+  }else{
+    c.innerHTML=`
+      <h3>Repetición</h3>
+      <p>Historia dividida en actos con múltiples finales y memoria persistente.</p>
+      <button class="close" onclick="closeModal()">Cerrar</button>
+    `;
+  }
+}
+
+function closeModal(){
+  document.getElementById("modal").style.display="none";
+}
+</script>
 
 </body>
 </html>
+
