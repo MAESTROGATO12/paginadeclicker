@@ -2,300 +2,211 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Gato Games — Indie Studio</title>
+<title>Gato Games — Studio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-/* ===========================
-   RESET & BASE
-=========================== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:system-ui, sans-serif;
+  background:radial-gradient(circle at top,#0f172a,#020617 70%);
+  color:#e5e7eb;
+  min-height:100vh;
 }
 
-html {
-  background: #050508;
-}
-
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  color: #e5e7eb;
-  background: radial-gradient(circle at top, #0f172a, #050508 70%);
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
-/* ===========================
-   MOBILE BLOCK
-=========================== */
-@media (max-width: 900px) {
-  body::before {
-    content: "Esta web está diseñada solo para PC";
-    position: fixed;
-    inset: 0;
-    background: #050508;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    z-index: 9999;
+/* PC ONLY */
+@media(max-width:900px){
+  body::before{
+    content:"Esta web solo está disponible en PC";
+    position:fixed;inset:0;
+    background:#020617;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.2rem;
+    z-index:9999;
   }
 }
 
-/* ===========================
-   LAYOUT
-=========================== */
-.app {
-  display: grid;
-  grid-template-columns: 260px 1fr;
-  min-height: 100vh;
+/* LAYOUT */
+.app{
+  display:grid;
+  grid-template-columns:260px 1fr;
+  min-height:100vh;
 }
 
-/* ===========================
-   SIDEBAR
-=========================== */
-.sidebar {
-  background: linear-gradient(180deg, #020617, #020617cc);
-  border-right: 1px solid #111827;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
+/* SIDEBAR */
+.sidebar{
+  background:#020617;
+  border-right:1px solid #1f2937;
+  padding:24px;
+  display:flex;
+  flex-direction:column;
 }
 
-.logo {
-  font-size: 1.4rem;
-  font-weight: 800;
-  letter-spacing: 2px;
-  margin-bottom: 32px;
+.logo{
+  font-size:1.5rem;
+  font-weight:900;
+  margin-bottom:30px;
+}
+.logo span{color:#22d3ee}
+
+.nav button{
+  background:transparent;
+  border:1px solid #1f2937;
+  color:#e5e7eb;
+  padding:12px;
+  border-radius:12px;
+  cursor:pointer;
+  text-align:left;
+  margin-bottom:10px;
+}
+.nav button:hover{
+  border-color:#22d3ee;
 }
 
-.logo span {
-  color: #22d3ee;
+.sidebar footer{
+  margin-top:auto;
+  font-size:.75rem;
+  color:#9ca3af;
 }
 
-.nav {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+/* MAIN */
+.main{padding:40px}
+
+.view{display:none}
+.view.active{display:block}
+
+/* HOME */
+.hero{
+  background:linear-gradient(135deg,#020617,#0f172a);
+  border-radius:24px;
+  padding:48px;
+}
+.hero h1{
+  font-size:3rem;
+  font-weight:900;
+}
+.hero p{
+  margin-top:10px;
+  max-width:600px;
+  color:#9ca3af;
 }
 
-.nav button {
-  background: transparent;
-  border: 1px solid #1f2937;
-  color: #e5e7eb;
-  padding: 12px 14px;
-  border-radius: 12px;
-  cursor: pointer;
-  text-align: left;
-  transition: background .2s, border .2s;
+/* GAMES GRID */
+.games{
+  margin-top:40px;
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:24px;
 }
 
-.nav button:hover {
-  background: #020617;
-  border-color: #22d3ee;
+.game-card{
+  background:#020617;
+  border:1px solid #1f2937;
+  border-radius:20px;
+  padding:24px;
+  cursor:pointer;
+  transition:.2s;
+}
+.game-card:hover{
+  border-color:#22d3ee;
+  transform:translateY(-4px);
 }
 
-.sidebar-footer {
-  margin-top: auto;
-  font-size: 0.75rem;
-  color: #9ca3af;
-  line-height: 1.4;
+.game-card h3{font-size:1.4rem}
+.game-card p{
+  margin-top:10px;
+  font-size:.9rem;
+  color:#9ca3af;
+}
+.tag{
+  margin-top:12px;
+  display:inline-block;
+  font-size:.7rem;
+  padding:4px 10px;
+  border-radius:999px;
+  border:1px solid #1f2937;
 }
 
-/* ===========================
-   MAIN
-=========================== */
-.main {
-  padding: 40px;
+/* GAME PAGE (STEAM STYLE) */
+.game-page{
+  max-width:900px;
 }
 
-.section {
-  display: none;
-  animation: fade .3s ease;
+.banner{
+  background:linear-gradient(135deg,#020617,#1e293b);
+  border-radius:24px;
+  padding:60px;
+  margin-bottom:30px;
 }
 
-.section.active {
-  display: block;
+.banner h1{
+  font-size:3rem;
 }
 
-@keyframes fade {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
+.game-meta{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+  margin:30px 0;
 }
 
-/* ===========================
-   HERO
-=========================== */
-.hero {
-  background: linear-gradient(135deg, #020617, #0f172a);
-  border-radius: 24px;
-  padding: 48px;
-  box-shadow: 0 0 80px rgba(34,211,238,0.15);
+.meta{
+  background:#020617;
+  border:1px solid #1f2937;
+  border-radius:16px;
+  padding:20px;
+  text-align:center;
 }
 
-.hero h1 {
-  font-size: 3rem;
-  font-weight: 900;
-  margin-bottom: 16px;
+.meta strong{
+  font-size:1.6rem;
+  color:#22d3ee;
 }
 
-.hero p {
-  max-width: 640px;
-  color: #9ca3af;
-  font-size: 1.05rem;
+.desc{
+  font-size:.95rem;
+  line-height:1.6;
+  color:#d1d5db;
 }
 
-.hero-stats {
-  margin-top: 32px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+.actions{
+  margin-top:30px;
+  display:flex;
+  gap:14px;
 }
 
-.stat {
-  background: #020617;
-  border: 1px solid #1f2937;
-  border-radius: 16px;
-  padding: 20px;
-  text-align: center;
+.actions a,
+.actions button{
+  padding:14px 24px;
+  border-radius:12px;
+  border:none;
+  cursor:pointer;
+  font-weight:700;
 }
 
-.stat .value {
-  font-size: 2rem;
-  font-weight: 800;
-  color: #22d3ee;
+.actions a{
+  background:#22d3ee;
+  color:#020617;
+  text-decoration:none;
 }
 
-.stat .label {
-  font-size: 0.8rem;
-  color: #9ca3af;
+.actions button{
+  background:transparent;
+  border:1px solid #1f2937;
+  color:#e5e7eb;
 }
 
-/* ===========================
-   GAMES GRID
-=========================== */
-.games-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 24px;
-  margin-top: 32px;
-}
-
-.game-card {
-  background: linear-gradient(180deg, #020617, #020617aa);
-  border: 1px solid #1f2937;
-  border-radius: 20px;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-}
-
-.game-card h3 {
-  font-size: 1.3rem;
-  margin-bottom: 10px;
-}
-
-.game-card p {
-  color: #9ca3af;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  flex-grow: 1;
-}
-
-.game-card .tag {
-  display: inline-block;
-  margin-top: 12px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  font-size: 0.7rem;
-  background: #0f172a;
-  border: 1px solid #1f2937;
-}
-
-.game-card a {
-  margin-top: 18px;
-  text-decoration: none;
-  background: #22d3ee;
-  color: #020617;
-  text-align: center;
-  padding: 10px;
-  border-radius: 12px;
-  font-weight: 700;
-}
-
-/* ===========================
-   NEWS
-=========================== */
-.news-list {
-  margin-top: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.news-item {
-  background: #020617;
-  border: 1px solid #1f2937;
-  border-radius: 14px;
-  padding: 16px;
-}
-
-.news-item h4 {
-  margin-bottom: 6px;
-}
-
-.news-item p {
-  font-size: 0.85rem;
-  color: #9ca3af;
-}
-
-/* ===========================
-   TIMELINE
-=========================== */
-.timeline {
-  margin-top: 32px;
-  border-left: 2px solid #1f2937;
-  padding-left: 20px;
-}
-
-.event {
-  margin-bottom: 24px;
-}
-
-.event h4 {
-  color: #22d3ee;
-}
-
-.event p {
-  font-size: 0.85rem;
-  color: #9ca3af;
-}
-
-/* ===========================
-   FOOTER
-=========================== */
-.footer {
-  margin-top: 80px;
-  padding-top: 24px;
-  border-top: 1px solid #1f2937;
-  font-size: 0.75rem;
-  color: #6b7280;
-}
-
-/* ===========================
-   BUTTONS
-=========================== */
-.reset-btn {
-  margin-top: 20px;
-  background: transparent;
-  border: 1px solid #7c3aed;
-  color: #7c3aed;
-  padding: 10px 16px;
-  border-radius: 999px;
-  cursor: pointer;
+/* FOOTER */
+.footer{
+  margin-top:80px;
+  border-top:1px solid #1f2937;
+  padding-top:20px;
+  font-size:.75rem;
+  color:#6b7280;
 }
 </style>
 </head>
@@ -304,136 +215,110 @@ body {
 
 <div class="app">
 
-  <aside class="sidebar">
-    <div class="logo">GATO <span>GAMES</span></div>
+<aside class="sidebar">
+  <div class="logo">GATO <span>GAMES</span></div>
+  <div class="nav">
+    <button onclick="show('home')">Inicio</button>
+    <button onclick="show('games')">Juegos</button>
+  </div>
+  <footer>
+    Indie studio<br>
+    Desde 2026
+  </footer>
+</aside>
 
-    <div class="nav">
-      <button onclick="show('home')">Inicio</button>
-      <button onclick="show('games')">Juegos</button>
-      <button onclick="show('news')">Noticias</button>
-      <button onclick="show('studio')">El Estudio</button>
-      <button onclick="show('future')">Próximamente</button>
+<main class="main">
+
+<!-- HOME -->
+<section id="home" class="view active">
+  <div class="hero">
+    <h1>Gato Games</h1>
+    <p>
+      Estudio indie centrado en experiencias jugables,
+      sin fórmulas ni prisas.
+    </p>
+  </div>
+</section>
+
+<!-- GAMES LIST -->
+<section id="games" class="view">
+  <h2>Juegos</h2>
+
+  <div class="games">
+    <div class="game-card" onclick="openGame('clicker')">
+      <h3>Casual Clicker</h3>
+      <p>Simple, adictivo, peligroso para el tiempo libre.</p>
+      <span class="tag">Disponible</span>
     </div>
 
-    <div class="sidebar-footer">
-      Indie studio independiente.<br>
-      Proyectos experimentales.<br>
-      2026 en adelante.
+    <div class="game-card" onclick="openGame('repeticion')">
+      <h3>Repetición</h3>
+      <p>Una historia dividida en actos. Nada es lo que parece.</p>
+      <span class="tag">Próximamente</span>
     </div>
-  </aside>
+  </div>
+</section>
 
-  <main class="main">
+<!-- GAME: CLICKER -->
+<section id="clicker" class="view game-page">
+  <div class="banner">
+    <h1>Casual Clicker</h1>
+  </div>
 
-    <section id="home" class="section active">
-      <div class="hero">
-        <h1>Gato Games</h1>
-        <p>
-          Estudio indie enfocado en experiencias experimentales,
-          juegos cortos y proyectos a largo plazo sin fórmulas repetidas.
-        </p>
+  <div class="game-meta">
+    <div class="meta"><strong>97%</strong><br>Reseñas positivas</div>
+    <div class="meta"><strong>8.2k</strong><br>Jugadores activos</div>
+    <div class="meta"><strong>Gratis</strong><br>itch.io</div>
+  </div>
 
-        <div class="hero-stats">
-          <div class="stat">
-            <div class="value">1</div>
-            <div class="label">Juego publicado</div>
-          </div>
-          <div class="stat">
-            <div class="value">2</div>
-            <div class="label">Proyectos activos</div>
-          </div>
-          <div class="stat">
-            <div class="value">2026</div>
-            <div class="label">Próximo lanzamiento</div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="desc">
+    Casual Clicker es un juego que parece una broma…
+    hasta que llevas horas jugando.
+    No hay final, solo progreso.
+  </div>
 
-    <section id="games" class="section">
-      <h2>Juegos disponibles</h2>
+  <div class="actions">
+    <a href="https://maestro-gato12.itch.io/casual-clicker" target="_blank">
+      Jugar en itch.io
+    </a>
+    <button onclick="show('games')">← Volver</button>
+  </div>
+</section>
 
-      <div class="games-grid">
-        <div class="game-card">
-          <h3>Casual Clicker</h3>
-          <p>
-            Un juego simple que se convierte en una obsesión silenciosa.
-            Diseñado para sesiones largas y progresión constante.
-          </p>
-          <span class="tag">Disponible</span>
-          <a href="https://maestro-gato12.itch.io/casual-clicker" target="_blank">Jugar gratis</a>
-        </div>
+<!-- GAME: REPETICIÓN -->
+<section id="repeticion" class="view game-page">
+  <div class="banner">
+    <h1>Repetición</h1>
+  </div>
 
-        <div class="game-card">
-          <h3>Repetición</h3>
-          <p>
-            Una experiencia narrativa dividida en actos.
-            Observa, repite y cuestiona lo que ocurre.
-          </p>
-          <span class="tag">En desarrollo</span>
-        </div>
-      </div>
-    </section>
+  <div class="desc">
+    Repetición es una experiencia narrativa dividida en tres actos.
+    Observa, repite, entiende… o no.
+  </div>
 
-    <section id="news" class="section">
-      <h2>Noticias</h2>
+  <div class="actions">
+    <button onclick="show('games')">← Volver</button>
+  </div>
+</section>
 
-      <div class="news-list">
-        <div class="news-item">
-          <h4>Nuevo proyecto narrativo</h4>
-          <p>Se inicia el desarrollo de un juego de más de 10 minutos.</p>
-        </div>
-        <div class="news-item">
-          <h4>Web del estudio renovada</h4>
-          <p>Nueva estructura, nuevo diseño, nueva etapa.</p>
-        </div>
-      </div>
-    </section>
+<div class="footer">
+  © 2026 Gato Games — juegos hechos sin sentido común.
+</div>
 
-    <section id="studio" class="section">
-      <h2>Sobre Gato Games</h2>
-      <p>
-        Gato Games es un estudio unipersonal.
-        No seguimos tendencias.
-        Experimentamos con sistemas, narrativa y diseño.
-      </p>
-
-      <button class="reset-btn" onclick="location.reload()">Reiniciar página</button>
-    </section>
-
-    <section id="future" class="section">
-      <h2>Próximamente</h2>
-
-      <div class="timeline">
-        <div class="event">
-          <h4>Acto I</h4>
-          <p>Introducción y mecánicas base.</p>
-        </div>
-        <div class="event">
-          <h4>Acto II</h4>
-          <p>Ruptura del bucle y nuevas reglas.</p>
-        </div>
-        <div class="event">
-          <h4>Acto III</h4>
-          <p>Conclusión y consecuencias.</p>
-        </div>
-      </div>
-    </section>
-
-    <div class="footer">
-      © 2026 Gato Games — juegos hechos por un solo dev sin miedo a probar cosas raras.
-    </div>
-
-  </main>
-
+</main>
 </div>
 
 <script>
-function show(id) {
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+function show(id){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
   document.getElementById(id).classList.add('active');
+}
+function openGame(id){
+  show(id);
 }
 </script>
 
 </body>
 </html>
+
 
