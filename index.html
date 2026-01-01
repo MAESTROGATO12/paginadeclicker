@@ -2,293 +2,207 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>??? — Página oficial</title>
-<meta name="viewport" content="width=1200">
+<title>Estudio Independiente</title>
 
 <style>
-:root{
-  --bg:#0b0d12;
-  --panel:#131622;
-  --panel2:#0f172a;
-  --accent:#7c3aed;
-  --accent2:#22d3ee;
-  --text:#e5e7eb;
-  --muted:#9ca3af;
-  --radius:18px;
-}
-
-*{box-sizing:border-box;margin:0;padding:0}
-
 body{
+  margin:0;
   font-family:system-ui, sans-serif;
-  background:radial-gradient(circle at top, #1e1b4b, var(--bg));
-  color:var(--text);
+  background:#0b0b12;
+  color:#e5e7eb;
 }
 
-.wrapper{
-  max-width:1200px;
+header{
+  padding:40px;
+  border-bottom:1px solid #1f2937;
+}
+
+header h1{
+  font-size:2.5rem;
+  letter-spacing:4px;
+}
+
+header p{
+  color:#9ca3af;
+}
+
+.container{
+  max-width:1100px;
   margin:auto;
   padding:40px;
 }
 
-/* ===== HEADER ===== */
-
-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:40px;
-}
-
-header h1{
-  font-size:1.6rem;
-  letter-spacing:2px;
-}
-
-header span{
-  color:var(--accent);
-}
-
-header a{
-  text-decoration:none;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  padding:14px 26px;
-  border-radius:999px;
-  color:#000;
-  font-weight:800;
-}
-
-/* ===== HERO ===== */
-
-.hero{
-  display:grid;
-  grid-template-columns:2fr 1fr;
-  gap:30px;
-  margin-bottom:50px;
-}
-
-.cover{
-  background:linear-gradient(135deg,#020617,#0f172a);
-  border-radius:var(--radius);
-  height:360px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:2.5rem;
-  font-weight:900;
-  letter-spacing:4px;
-  box-shadow:0 0 60px rgba(124,58,237,.25);
-}
-
-.info{
-  background:var(--panel);
-  border-radius:var(--radius);
-  padding:26px;
-}
-
-.info h2{
-  margin-bottom:12px;
-}
-
-.info p{
-  color:var(--muted);
-  font-size:.95rem;
-  line-height:1.6;
-}
-
-.tags{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin:16px 0;
-}
-
-.tag{
-  background:#0f172a;
-  padding:6px 12px;
-  border-radius:999px;
-  font-size:.75rem;
-}
-
-/* ===== STATS ===== */
-
-.stats{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:20px;
-  margin-bottom:50px;
-}
-
-.stat{
-  background:var(--panel2);
-  padding:22px;
-  border-radius:var(--radius);
-  text-align:center;
-}
-
-.stat b{
-  font-size:1.6rem;
-  display:block;
-  margin-bottom:6px;
-}
-
-/* ===== CONTENT ===== */
+/* ===== SECTIONS ===== */
 
 .section{
-  margin-bottom:50px;
+  margin-bottom:60px;
 }
 
-.section h3{
-  font-size:1.4rem;
-  margin-bottom:18px;
-  border-left:4px solid var(--accent);
+.section h2{
+  font-size:1.8rem;
+  margin-bottom:20px;
+  border-left:4px solid #7c3aed;
   padding-left:14px;
 }
 
-.text{
-  background:var(--panel);
-  border-radius:var(--radius);
-  padding:26px;
-  line-height:1.6;
-  color:var(--muted);
-}
+/* ===== GAME CARDS ===== */
 
-/* ===== STORY ===== */
-
-.acts{
+.games{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
+  grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+  gap:24px;
 }
 
-.act{
-  background:#0f172a;
-  padding:22px;
-  border-radius:var(--radius);
+.game{
+  background:#111827;
+  border:1px solid #1f2937;
+  border-radius:16px;
+  padding:24px;
+  transition:.2s;
 }
 
-.act h4{
+.game:hover{
+  transform:translateY(-6px);
+  border-color:#7c3aed;
+}
+
+.game h3{
+  font-size:1.4rem;
   margin-bottom:10px;
-  color:var(--text);
 }
 
-/* ===== CHANGELOG ===== */
+.game p{
+  font-size:0.95rem;
+  color:#9ca3af;
+  line-height:1.5;
+}
 
-.changelog p{
-  margin-bottom:8px;
+.tags{
+  margin:14px 0;
+}
+
+.tag{
+  display:inline-block;
+  background:#1f2937;
+  padding:4px 10px;
+  border-radius:999px;
+  font-size:0.75rem;
+  margin-right:6px;
+}
+
+.game a{
+  display:inline-block;
+  margin-top:14px;
+  text-decoration:none;
+  background:#7c3aed;
+  color:#000;
+  padding:10px 18px;
+  border-radius:999px;
+  font-weight:700;
+}
+
+/* ===== FEATURED GAME ===== */
+
+.featured{
+  background:linear-gradient(135deg,#1e1b4b,#0b0b12);
+  border:1px solid #312e81;
+}
+
+.featured h3{
+  font-size:1.8rem;
 }
 
 /* ===== FOOTER ===== */
 
 footer{
-  margin-top:80px;
-  padding-top:30px;
   border-top:1px solid #1f2937;
+  padding:30px;
   text-align:center;
-  font-size:.85rem;
-  color:var(--muted);
+  color:#6b7280;
+  font-size:0.85rem;
 }
 </style>
 </head>
 
 <body>
 
-<div class="wrapper">
-
 <header>
-  <h1>CASUAL CLICKER <span>STUDIO</span></h1>
-  <a href="#">Próximamente</a>
+  <h1>INDEPENDENT GAMES</h1>
+  <p>Experiencias creadas por un solo desarrollador</p>
 </header>
 
-<section class="hero">
-  <div class="cover">???</div>
+<div class="container">
 
-  <div class="info">
-    <h2>??? (2026)</h2>
-    <p>
-      Un juego narrativo experimental centrado en la repetición,
-      la memoria y la pérdida de control.  
-      Diseñado como una experiencia completa de más de 10 minutos,
-      pensada exclusivamente para PC.
-    </p>
+  <!-- NUEVO JUEGO -->
+  <div class="section">
+    <h2>Juego principal</h2>
 
-    <div class="tags">
-      <div class="tag">Narrativo</div>
-      <div class="tag">Experimental</div>
-      <div class="tag">Un jugador</div>
-      <div class="tag">Psicológico</div>
-      <div class="tag">Indie</div>
+    <div class="games">
+      <div class="game featured">
+        <h3>REPETICIÓN</h3>
+        <p>
+          Una experiencia narrativa dividida en actos.<br>
+          Cada decisión deja una marca.<br><br>
+          No es un clicker.  
+          No es un juego corto.  
+          No es lo que parece.
+        </p>
+
+        <div class="tags">
+          <span class="tag">Historia</span>
+          <span class="tag">Experiencia</span>
+          <span class="tag">Actos I–III</span>
+          <span class="tag">PC</span>
+        </div>
+
+        <a href="#">Próximamente</a>
+      </div>
     </div>
   </div>
-</section>
 
-<section class="stats">
-  <div class="stat">
-    <b>PC</b>
-    Plataforma
-  </div>
-  <div class="stat">
-    <b>+10 min</b>
-    Duración
-  </div>
-  <div class="stat">
-    <b>2026</b>
-    Lanzamiento
-  </div>
-  <div class="stat">
-    <b>Solo Dev</b>
-    Desarrollo
-  </div>
-</section>
+  <!-- JUEGOS ANTERIORES -->
+  <div class="section">
+    <h2>Juegos anteriores</h2>
 
-<section class="section">
-  <h3>Descripción</h3>
-  <div class="text">
-    No es un clicker.  
-    No es un idle.  
-    No es un juego tradicional.
-    <br><br>
-    El jugador repite acciones simples mientras el mundo comienza a
-    reaccionar de formas inesperadas.  
-    El sistema observa, recuerda y cambia.
-  </div>
-</section>
+    <div class="games">
+      <div class="game">
+        <h3>Casual Clicker</h3>
+        <p>
+          Un juego simple, directo y adictivo.<br>
+          Clicks, progreso y números que no paran de subir.
+        </p>
 
-<section class="section">
-  <h3>Historia</h3>
-  <div class="acts">
-    <div class="act">
-      <h4>Acto I — Rutina</h4>
-      Todo parece estable. El jugador aprende y repite.
-    </div>
-    <div class="act">
-      <h4>Acto II — Fractura</h4>
-      Pequeñas incoherencias rompen la lógica inicial.
-    </div>
-    <div class="act">
-      <h4>Acto III — Ruptura</h4>
-      El juego deja de obedecer reglas conocidas.
+        <div class="tags">
+          <span class="tag">Casual</span>
+          <span class="tag">Idle</span>
+        </div>
+
+        <a href="https://maestro-gato12.itch.io/casual-clicker" target="_blank">
+          Jugar gratis
+        </a>
+      </div>
+
+      <div class="game">
+        <h3>???</h3>
+        <p>
+          Próximo proyecto.<br>
+          En desarrollo para 2026.
+        </p>
+
+        <div class="tags">
+          <span class="tag">En progreso</span>
+        </div>
+
+        <a href="#">Información</a>
+      </div>
     </div>
   </div>
-</section>
-
-<section class="section">
-  <h3>Cambios Recientes</h3>
-  <div class="text changelog">
-    <p>• Nueva narrativa completa en 3 actos</p>
-    <p>• Interfaz rediseñada solo para PC</p>
-    <p>• Base preparada para versión de pago</p>
-    <p>• Eliminado cualquier sistema de clicker</p>
-  </div>
-</section>
-
-<footer>
-  © 2026 — Juegos hechos por un solo dev sin sentido común pero con ambición
-</footer>
 
 </div>
 
+<footer>
+© 2026 — Juegos hechos por un solo dev sin dormir demasiado
+</footer>
+
 </body>
 </html>
-
-
