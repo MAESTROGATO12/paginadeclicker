@@ -7,318 +7,228 @@
 
 <style>
 :root{
-  --bg:#0b0b0f;
-  --panel:#12121a;
-  --soft:#181824;
-  --accent:#ef4444;
-  --accent2:#f97316;
-  --text:#e5e7eb;
-  --muted:#9ca3af;
-  --radius:18px;
+  --bg:#07070a;
+  --paper:#f5f5f4;
+  --ink:#0a0a0a;
+  --accent:#dc2626;
+  --muted:#6b7280;
 }
 
-*{box-sizing:border-box;margin:0;padding:0}
+*{margin:0;padding:0;box-sizing:border-box}
 
 body{
-  font-family:system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  background:
-    radial-gradient(circle at top, #1f1f2e, var(--bg));
-  color:var(--text);
-  min-height:100vh;
+  font-family: "Inter", system-ui, sans-serif;
+  background:var(--bg);
+  color:var(--paper);
+  overflow-x:hidden;
 }
 
-/* ===== LAYOUT ===== */
-
-.wrapper{
-  max-width:1100px;
-  margin:auto;
-  padding:40px 24px 80px;
-}
-
-/* ===== HEADER ===== */
-
-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:60px;
-}
-
-.brand{
-  display:flex;
-  align-items:center;
-  gap:14px;
-}
-
-.logo{
-  width:46px;
-  height:46px;
-  border-radius:14px;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:1.5rem;
-  font-weight:900;
-  color:#000;
-}
-
-.brand h1{
-  font-size:1.6rem;
-  letter-spacing:1px;
-}
-
-.tag{
-  font-size:.8rem;
-  color:var(--muted);
-}
-
-/* ===== HERO ===== */
-
-.hero{
-  background:linear-gradient(135deg,#1a1a2e,#0f172a);
-  border-radius:var(--radius);
-  padding:48px;
-  box-shadow:0 0 60px rgba(239,68,68,.25);
-  margin-bottom:60px;
-}
-
-.hero h2{
-  font-size:2.6rem;
-  line-height:1.1;
-  margin-bottom:14px;
-}
-
-.hero p{
-  max-width:600px;
-  color:var(--muted);
-  font-size:1rem;
-}
-
-/* ===== SECTION ===== */
-
-section{
-  margin-bottom:70px;
-}
-
-section h3{
-  font-size:1.5rem;
-  margin-bottom:24px;
-}
-
-/* ===== GAMES GRID ===== */
-
-.games{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:28px;
-}
-
-.game{
-  background:var(--panel);
-  border-radius:var(--radius);
-  padding:28px;
-  position:relative;
-  overflow:hidden;
-  transition:.2s;
-}
-
-.game:hover{
-  transform:translateY(-4px);
-}
-
-.game::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(120deg,transparent,rgba(255,255,255,.03),transparent);
-  opacity:0;
-  transition:.3s;
-}
-
-.game:hover::after{
-  opacity:1;
-}
-
-.game h4{
-  font-size:1.4rem;
-  margin-bottom:6px;
-}
-
-.status{
-  display:inline-block;
-  font-size:.75rem;
-  padding:4px 10px;
-  border-radius:999px;
-  margin-bottom:16px;
-}
-
-.available{
-  background:rgba(34,197,94,.15);
-  color:#22c55e;
-}
-
-.soon{
-  background:rgba(239,68,68,.15);
-  color:#ef4444;
-}
-
-.game p{
-  font-size:.9rem;
-  color:var(--muted);
-  margin-bottom:20px;
-}
-
-.game a{
-  display:inline-block;
-  text-decoration:none;
-  padding:10px 18px;
-  border-radius:999px;
-  font-weight:700;
-  font-size:.85rem;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  color:#000;
-}
-
-/* ===== STATS ===== */
-
-.stats{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
-
-.stat{
-  background:var(--soft);
-  border-radius:var(--radius);
-  padding:26px;
-  text-align:center;
-}
-
-.stat b{
-  font-size:1.8rem;
-}
-
-.stat span{
-  display:block;
-  margin-top:6px;
-  font-size:.75rem;
-  color:var(--muted);
-}
-
-/* ===== FOOTER ===== */
-
-footer{
-  text-align:center;
-  margin-top:80px;
-  color:var(--muted);
-  font-size:.75rem;
-}
-
-footer strong{
-  color:var(--text);
-}
-
-/* ===== PC ONLY WARNING ===== */
-
+/* ===== PC ONLY ===== */
 @media(max-width:1000px){
   body::before{
-    content:"Esta experiencia está pensada solo para PC.";
+    content:"Disponible solo para PC.";
     position:fixed;
     inset:0;
     background:#000;
     color:#fff;
     display:flex;
-    justify-content:center;
     align-items:center;
-    font-size:1.2rem;
-    z-index:999;
+    justify-content:center;
+    font-size:1.4rem;
+    z-index:9999;
   }
+}
+
+/* ===== SECTIONS ===== */
+
+section{
+  min-height:100vh;
+  padding:80px 90px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+/* ===== INTRO ===== */
+
+.intro h1{
+  font-size:6rem;
+  line-height:0.95;
+  letter-spacing:-3px;
+}
+
+.intro p{
+  margin-top:30px;
+  max-width:520px;
+  font-size:1.05rem;
+  color:#c7c7c7;
+}
+
+/* ===== DIVIDER ===== */
+
+.divider{
+  height:1px;
+  background:rgba(255,255,255,.1);
+  margin:60px 0;
+}
+
+/* ===== GAMES ===== */
+
+.games{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+}
+
+.game{
+  position:relative;
+}
+
+.game h2{
+  font-size:2.8rem;
+  margin-bottom:12px;
+}
+
+.game .state{
+  font-size:.75rem;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:18px;
+  color:var(--accent);
+}
+
+.game p{
+  max-width:420px;
+  font-size:.95rem;
+  color:#b5b5b5;
+  margin-bottom:28px;
+}
+
+.game a{
+  text-decoration:none;
+  font-weight:700;
+  color:var(--paper);
+  border-bottom:2px solid var(--accent);
+  padding-bottom:4px;
+}
+
+/* ===== FUTURE ===== */
+
+.future{
+  background:var(--paper);
+  color:var(--ink);
+}
+
+.future h2{
+  font-size:4rem;
+  letter-spacing:-2px;
+}
+
+.future p{
+  margin-top:20px;
+  max-width:520px;
+  color:#333;
+}
+
+/* ===== STUDIO ===== */
+
+.studio h2{
+  font-size:3.5rem;
+  margin-bottom:24px;
+}
+
+.manifesto{
+  max-width:600px;
+  line-height:1.7;
+  font-size:1rem;
+  color:#cfcfcf;
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+  padding:40px 90px;
+  font-size:.75rem;
+  color:#9ca3af;
 }
 </style>
 </head>
 
 <body>
 
-<div class="wrapper">
+<section class="intro">
+  <h1>Gato<br>Games</h1>
 
-<header>
-  <div class="brand">
-    <div class="logo">🐱</div>
-    <div>
-      <h1>Gato Games</h1>
-      <div class="tag">juegos hechos con tiempo, café y poca cordura</div>
-    </div>
-  </div>
-</header>
-
-<div class="hero">
-  <h2>Pequeños juegos.<br>Grandes ideas.</h2>
   <p>
-    Gato Games es un estudio independiente enfocado en crear experiencias
-    simples por fuera, profundas por dentro.  
-    Nada de relleno. Nada de prisas.
+    Gato Games es un estudio independiente enfocado en crear
+    juegos pequeños, raros y honestos.
+    No seguimos tendencias.
+    Construimos experiencias.
   </p>
-</div>
+</section>
 
 <section>
-  <h3>🎮 Juegos</h3>
+  <div class="divider"></div>
 
   <div class="games">
 
     <div class="game">
-      <span class="status available">Disponible</span>
-      <h4>Casual Clicker</h4>
+      <div class="state">Disponible</div>
+      <h2>Casual Clicker</h2>
       <p>
-        Un juego aparentemente simple que termina siendo
-        peligrosamente adictivo.  
-        Ideal para perder el tiempo… o encontrarte a ti mismo.
+        Empieza como una broma.
+        Continúa como un hábito.
+        Termina siendo algo que no esperabas.
       </p>
       <a href="https://maestro-gato12.itch.io/casual-clicker" target="_blank">
-        Jugar gratis en itch.io
+        Jugar en itch.io →
       </a>
     </div>
 
     <div class="game">
-      <span class="status soon">Próximamente</span>
-      <h4>Repetición</h4>
+      <div class="state">En desarrollo</div>
+      <h2>Repetición</h2>
       <p>
         Una experiencia narrativa dividida en actos.
-        Nada se explica del todo.
-        Nada ocurre solo una vez.
+        El jugador no avanza.
+        Vuelve.
       </p>
-      <a href="#">
-        Disponible en 2026
-      </a>
+      <span style="color:#777;font-size:.9rem;">
+        Lanzamiento previsto · 2026
+      </span>
     </div>
 
   </div>
 </section>
 
-<section>
-  <h3>📊 El estudio en números</h3>
+<section class="future">
+  <h2>Lo que viene</h2>
+  <p>
+    No anunciamos todo.
+    No mostramos trailers antes de tiempo.
+    Cuando algo esté listo, aparecerá aquí.
+  </p>
+</section>
 
-  <div class="stats">
-    <div class="stat">
-      <b>1</b>
-      <span>dev</span>
-    </div>
-    <div class="stat">
-      <b>2</b>
-      <span>juegos publicados / en desarrollo</span>
-    </div>
-    <div class="stat">
-      <b>∞</b>
-      <span>ideas pendientes</span>
-    </div>
+<section class="studio">
+  <h2>El estudio</h2>
+
+  <div class="manifesto">
+    Un desarrollador.<br>
+    Muchas ideas.<br><br>
+
+    Gato Games no busca volumen ni algoritmos.
+    Busca terminar cosas.
+    Aprender.
+    Publicar.
+    Repetir el proceso.
   </div>
 </section>
 
 <footer>
-  © 2026 <strong>Gato Games</strong> — juegos hechos por curiosidad, no por algoritmo.
+  © 2026 Gato Games — juegos hechos por diversion
 </footer>
-
-</div>
 
 </body>
 </html>
+
