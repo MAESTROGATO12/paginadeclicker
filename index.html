@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Estudio Independiente</title>
+<title>Mis Juegos</title>
 
 <style>
 body{
@@ -13,52 +13,53 @@ body{
 }
 
 header{
-  padding:40px;
+  padding:50px;
   border-bottom:1px solid #1f2937;
 }
 
 header h1{
-  font-size:2.5rem;
-  letter-spacing:4px;
+  font-size:2.6rem;
+  letter-spacing:5px;
 }
 
 header p{
   color:#9ca3af;
+  margin-top:10px;
 }
 
 .container{
-  max-width:1100px;
+  max-width:1200px;
   margin:auto;
-  padding:40px;
+  padding:50px;
 }
 
 /* ===== SECTIONS ===== */
 
 .section{
-  margin-bottom:60px;
+  margin-bottom:70px;
 }
 
 .section h2{
-  font-size:1.8rem;
-  margin-bottom:20px;
+  font-size:1.9rem;
+  margin-bottom:24px;
   border-left:4px solid #7c3aed;
   padding-left:14px;
 }
 
-/* ===== GAME CARDS ===== */
+/* ===== GAME GRID ===== */
 
 .games{
   display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
-  gap:24px;
+  grid-template-columns:repeat(auto-fill,minmax(340px,1fr));
+  gap:28px;
 }
 
 .game{
   background:#111827;
   border:1px solid #1f2937;
-  border-radius:16px;
-  padding:24px;
-  transition:.2s;
+  border-radius:18px;
+  padding:26px;
+  transition:.25s;
 }
 
 .game:hover{
@@ -67,56 +68,60 @@ header p{
 }
 
 .game h3{
-  font-size:1.4rem;
-  margin-bottom:10px;
+  font-size:1.6rem;
+  margin-bottom:12px;
 }
 
 .game p{
-  font-size:0.95rem;
   color:#9ca3af;
-  line-height:1.5;
+  line-height:1.6;
+  font-size:0.95rem;
 }
 
 .tags{
-  margin:14px 0;
+  margin:18px 0;
 }
 
 .tag{
   display:inline-block;
   background:#1f2937;
-  padding:4px 10px;
+  padding:6px 12px;
   border-radius:999px;
   font-size:0.75rem;
   margin-right:6px;
+  margin-bottom:6px;
 }
 
 .game a{
   display:inline-block;
-  margin-top:14px;
+  margin-top:16px;
   text-decoration:none;
   background:#7c3aed;
   color:#000;
-  padding:10px 18px;
+  padding:12px 22px;
   border-radius:999px;
-  font-weight:700;
+  font-weight:800;
 }
 
-/* ===== FEATURED GAME ===== */
+/* ===== UPCOMING STYLE ===== */
 
-.featured{
+.upcoming{
   background:linear-gradient(135deg,#1e1b4b,#0b0b12);
   border:1px solid #312e81;
 }
 
-.featured h3{
-  font-size:1.8rem;
+.status{
+  font-size:0.75rem;
+  letter-spacing:2px;
+  color:#a78bfa;
+  margin-bottom:10px;
 }
 
 /* ===== FOOTER ===== */
 
 footer{
   border-top:1px solid #1f2937;
-  padding:30px;
+  padding:35px;
   text-align:center;
   color:#6b7280;
   font-size:0.85rem;
@@ -127,25 +132,50 @@ footer{
 <body>
 
 <header>
-  <h1>INDEPENDENT GAMES</h1>
-  <p>Experiencias creadas por un solo desarrollador</p>
+  <h1>MIS JUEGOS</h1>
+  <p>Proyectos independientes creados por un solo desarrollador</p>
 </header>
 
 <div class="container">
 
-  <!-- NUEVO JUEGO -->
+  <!-- DISPONIBLES -->
   <div class="section">
-    <h2>Juego principal</h2>
+    <h2>Disponibles</h2>
 
     <div class="games">
-      <div class="game featured">
+      <div class="game">
+        <h3>Casual Clicker</h3>
+        <p>
+          Un juego simple, directo y sorprendentemente adictivo.<br>
+          Haz clicks, progresa y pierde la noción del tiempo.
+        </p>
+
+        <div class="tags">
+          <span class="tag">Casual</span>
+          <span class="tag">Clicker</span>
+          <span class="tag">Progreso</span>
+        </div>
+
+        <a href="https://maestro-gato12.itch.io/casual-clicker" target="_blank">
+          Jugar en itch.io
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- POR SALIR -->
+  <div class="section">
+    <h2>Por salir</h2>
+
+    <div class="games">
+      <div class="game upcoming">
+        <div class="status">PRÓXIMAMENTE</div>
         <h3>REPETICIÓN</h3>
         <p>
           Una experiencia narrativa dividida en actos.<br>
-          Cada decisión deja una marca.<br><br>
-          No es un clicker.  
-          No es un juego corto.  
-          No es lo que parece.
+          No es un juego corto.<br>
+          No es un clicker.<br>
+          Cada decisión importa.
         </p>
 
         <div class="tags">
@@ -155,45 +185,9 @@ footer{
           <span class="tag">PC</span>
         </div>
 
-        <a href="#">Próximamente</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- JUEGOS ANTERIORES -->
-  <div class="section">
-    <h2>Juegos anteriores</h2>
-
-    <div class="games">
-      <div class="game">
-        <h3>Casual Clicker</h3>
-        <p>
-          Un juego simple, directo y adictivo.<br>
-          Clicks, progreso y números que no paran de subir.
-        </p>
-
-        <div class="tags">
-          <span class="tag">Casual</span>
-          <span class="tag">Idle</span>
-        </div>
-
-        <a href="https://maestro-gato12.itch.io/casual-clicker" target="_blank">
-          Jugar gratis
+        <a href="#">
+          Más información
         </a>
-      </div>
-
-      <div class="game">
-        <h3>???</h3>
-        <p>
-          Próximo proyecto.<br>
-          En desarrollo para 2026.
-        </p>
-
-        <div class="tags">
-          <span class="tag">En progreso</span>
-        </div>
-
-        <a href="#">Información</a>
       </div>
     </div>
   </div>
@@ -201,7 +195,7 @@ footer{
 </div>
 
 <footer>
-© 2026 — Juegos hechos por un solo dev sin dormir demasiado
+© 2026 — juegos tontos por un dev tonto
 </footer>
 
 </body>
