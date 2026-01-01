@@ -2,31 +2,30 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=1200">
+<meta name="viewport" content="width=1300">
 <title>Gato Games</title>
 
 <style>
 :root{
-  --bg:#07070a;
-  --paper:#f5f5f4;
-  --ink:#0a0a0a;
-  --accent:#dc2626;
-  --muted:#6b7280;
+  --black:#050506;
+  --white:#f2f2f2;
+  --gray:#9ca3af;
+  --red:#ef4444;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
+  background:var(--black);
+  color:var(--white);
   font-family: "Inter", system-ui, sans-serif;
-  background:var(--bg);
-  color:var(--paper);
   overflow-x:hidden;
 }
 
-/* ===== PC ONLY ===== */
-@media(max-width:1000px){
-  body::before{
-    content:"Disponible solo para PC.";
+/* PC ONLY */
+@media(max-width:1100px){
+  body::after{
+    content:"Gato Games es solo para PC.";
     position:fixed;
     inset:0;
     background:#000;
@@ -34,201 +33,232 @@ body{
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:1.4rem;
+    font-size:1.5rem;
     z-index:9999;
   }
+}
+
+/* ===== CURSOR ===== */
+.cursor{
+  position:fixed;
+  width:10px;
+  height:10px;
+  background:var(--white);
+  border-radius:50%;
+  pointer-events:none;
+  transform:translate(-50%,-50%);
+  z-index:10000;
 }
 
 /* ===== SECTIONS ===== */
 
 section{
   min-height:100vh;
-  padding:80px 90px;
+  padding:90px 110px;
   display:flex;
   flex-direction:column;
   justify-content:center;
 }
 
-/* ===== INTRO ===== */
+/* ===== HERO ===== */
 
-.intro h1{
-  font-size:6rem;
-  line-height:0.95;
-  letter-spacing:-3px;
+.hero h1{
+  font-size:7.5rem;
+  letter-spacing:-4px;
+  line-height:.95;
 }
 
-.intro p{
+.hero span{
+  color:var(--gray);
+  font-size:1rem;
   margin-top:30px;
-  max-width:520px;
-  font-size:1.05rem;
-  color:#c7c7c7;
+  max-width:480px;
 }
 
-/* ===== DIVIDER ===== */
-
-.divider{
+/* ===== LINE ===== */
+.line{
   height:1px;
   background:rgba(255,255,255,.1);
-  margin:60px 0;
+  margin:70px 0;
 }
 
 /* ===== GAMES ===== */
 
 .games{
-  display:grid;
-  grid-template-columns:1fr 1fr;
+  display:flex;
+  flex-direction:column;
   gap:80px;
 }
 
 .game{
-  position:relative;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
 }
 
 .game h2{
-  font-size:2.8rem;
-  margin-bottom:12px;
+  font-size:3.2rem;
 }
 
-.game .state{
-  font-size:.75rem;
+.game .tag{
+  font-size:.7rem;
   letter-spacing:2px;
   text-transform:uppercase;
-  margin-bottom:18px;
-  color:var(--accent);
+  color:var(--red);
+  margin-bottom:14px;
 }
 
 .game p{
   max-width:420px;
-  font-size:.95rem;
-  color:#b5b5b5;
-  margin-bottom:28px;
+  color:#c9c9c9;
+  margin:20px 0 30px;
 }
 
 .game a{
   text-decoration:none;
+  color:var(--white);
   font-weight:700;
-  color:var(--paper);
-  border-bottom:2px solid var(--accent);
-  padding-bottom:4px;
+  position:relative;
 }
 
-/* ===== FUTURE ===== */
-
-.future{
-  background:var(--paper);
-  color:var(--ink);
+.game a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-4px;
+  width:0;
+  height:2px;
+  background:var(--red);
+  transition:.3s;
 }
 
-.future h2{
-  font-size:4rem;
+.game a:hover::after{
+  width:100%;
+}
+
+/* ===== INTERLUDE ===== */
+
+.interlude{
+  background:#0b0b0f;
+}
+
+.interlude h2{
+  font-size:4.5rem;
   letter-spacing:-2px;
 }
 
-.future p{
-  margin-top:20px;
+.interlude p{
   max-width:520px;
-  color:#333;
+  margin-top:24px;
+  color:#bdbdbd;
 }
 
-/* ===== STUDIO ===== */
+/* ===== MANIFEST ===== */
 
-.studio h2{
-  font-size:3.5rem;
-  margin-bottom:24px;
-}
-
-.manifesto{
-  max-width:600px;
-  line-height:1.7;
-  font-size:1rem;
-  color:#cfcfcf;
+.manifest{
+  font-size:1.2rem;
+  line-height:1.8;
+  max-width:620px;
+  color:#d4d4d4;
 }
 
 /* ===== FOOTER ===== */
 
 footer{
-  padding:40px 90px;
+  padding:50px 110px;
   font-size:.75rem;
-  color:#9ca3af;
+  color:#6b7280;
 }
 </style>
 </head>
 
 <body>
 
-<section class="intro">
-  <h1>Gato<br>Games</h1>
+<div class="cursor"></div>
 
-  <p>
-    Gato Games es un estudio independiente enfocado en crear
-    juegos pequeños, raros y honestos.
-    No seguimos tendencias.
-    Construimos experiencias.
-  </p>
+<section class="hero">
+  <h1>Gato<br>Games</h1>
+  <span>
+    Juegos creados sin fórmulas.
+    Sin prisas.
+    Sin pedir permiso.
+  </span>
 </section>
 
 <section>
-  <div class="divider"></div>
+  <div class="line"></div>
 
   <div class="games">
 
     <div class="game">
-      <div class="state">Disponible</div>
-      <h2>Casual Clicker</h2>
-      <p>
-        Empieza como una broma.
-        Continúa como un hábito.
-        Termina siendo algo que no esperabas.
-      </p>
-      <a href="https://maestro-gato12.itch.io/casual-clicker" target="_blank">
-        Jugar en itch.io →
-      </a>
+      <div>
+        <div class="tag">Disponible</div>
+        <h2>Casual Clicker</h2>
+        <p>
+          Un experimento disfrazado de juego casual.
+          Empieza simple.
+          No termina igual.
+        </p>
+        <a href="https://maestro-gato12.itch.io/casual-clicker" target="_blank">
+          Jugar ahora →
+        </a>
+      </div>
+      <div style="color:#444;font-size:8rem;font-weight:800;">01</div>
     </div>
 
     <div class="game">
-      <div class="state">En desarrollo</div>
-      <h2>Repetición</h2>
-      <p>
-        Una experiencia narrativa dividida en actos.
-        El jugador no avanza.
-        Vuelve.
-      </p>
-      <span style="color:#777;font-size:.9rem;">
-        Lanzamiento previsto · 2026
-      </span>
+      <div>
+        <div class="tag">Próximamente</div>
+        <h2>Repetición</h2>
+        <p>
+          Actos.
+          Decisiones.
+          Consecuencias que no desaparecen.
+        </p>
+        <span style="color:#777;font-size:.9rem;">
+          Lanzamiento estimado · 2026
+        </span>
+      </div>
+      <div style="color:#444;font-size:8rem;font-weight:800;">02</div>
     </div>
 
   </div>
 </section>
 
-<section class="future">
-  <h2>Lo que viene</h2>
+<section class="interlude">
+  <h2>No hacemos muchos juegos.</h2>
   <p>
-    No anunciamos todo.
-    No mostramos trailers antes de tiempo.
-    Cuando algo esté listo, aparecerá aquí.
+    Hacemos los que podemos terminar.
+    Y los publicamos.
   </p>
 </section>
 
-<section class="studio">
-  <h2>El estudio</h2>
+<section>
+  <div class="manifest">
+    Un solo desarrollador.<br><br>
 
-  <div class="manifesto">
-    Un desarrollador.<br>
-    Muchas ideas.<br><br>
+    Gato Games existe para aprender,
+    equivocarse
+    y volver a intentarlo.<br><br>
 
-    Gato Games no busca volumen ni algoritmos.
-    Busca terminar cosas.
-    Aprender.
-    Publicar.
-    Repetir el proceso.
+    No prometemos fechas.
+    No prometemos éxito.
+    Prometemos terminar lo que empezamos.
   </div>
 </section>
 
 <footer>
-  © 2026 Gato Games — juegos hechos por diversion
+  © 2026 Gato Games — Chat gpt no fue obligado a nada (lo prometo)
 </footer>
+
+<script>
+const cursor = document.querySelector('.cursor');
+document.addEventListener('mousemove', e=>{
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+});
+</script>
 
 </body>
 </html>
-
